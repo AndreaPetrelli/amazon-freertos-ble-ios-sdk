@@ -545,6 +545,7 @@ extension AmazonFreeRTOSManager {
                             devices[peripheral.identifier]?.savedNetworks[indexSaved].bssid = listNetworkResp.bssid
                             devices[peripheral.identifier]?.savedNetworks[indexSaved].rssi = listNetworkResp.rssi
                             devices[peripheral.identifier]?.savedNetworks[indexSaved].hidden = listNetworkResp.hidden
+                            NotificationCenter.default.post(name: .afrDidListNetwork, object: nil, userInfo: ["peripheral": peripheral.identifier, "listNetworkResp": listNetworkResp])
                         }
                         return
                     }
